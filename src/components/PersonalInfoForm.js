@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
-import ButtonAppBar from "./ButtonAppBar";
 import Box from '@mui/material/Box';
 const PersonalInfoForm = ({nextStep}) => {
     
@@ -14,12 +13,11 @@ const PersonalInfoForm = ({nextStep}) => {
 
   const handleInput = input => e => {
     setInfo({...info, [input]: e.target.value });
-    console.log(info)
+    // console.log(info)
   }
 
     return (
      <>
-      <ButtonAppBar />
       <Box
       component="form"
       sx={{

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState, useEffect } from 'react';
 import ExperienceSection from './ExperienceSection';
 import PersonalInfoForm from './PersonalInfoForm';
+import Resume from './Resume';
+import { ResumeContext } from '../contexts/ResumeContext';
 
 const ResumeBuilder = () => {
     const [step, setStep] = useState(1)
@@ -19,6 +21,12 @@ const ResumeBuilder = () => {
     })
 
 
+    const addEducation = (eduList) => {
+        setResume({
+            ...resume,
+            education: [eduList]
+        })
+    }
     const nextStep =() => {
         setStep(step + 1)
 
@@ -32,11 +40,18 @@ const ResumeBuilder = () => {
     switch(step){
         case 1:
             return (
-                <PersonalInfoForm nextStep={nextStep} />
+                <>
+                    <Resume resume={resume} />
+                    <PersonalInfoForm nextStep={nextStep} />
+                </>
+
             )
         case 2:
             return (
-                <ExperienceSection nextStep={nextStep} />
+                <>
+                    <Resume resume={resume} />
+                    <ExperienceSection addEducation={addEducation} res nextStep={nextStep} />
+                </>
             )
 
     }
