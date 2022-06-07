@@ -2,7 +2,7 @@ import { Box, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 
 
-const ExperienceForm = ({onEducationChange, initList}) => {
+const ExperienceForm = ({onEducationChange}) => {
     const [education, setEducation] = useState({
         id:1,
         title: "Lorem",
@@ -17,7 +17,8 @@ const ExperienceForm = ({onEducationChange, initList}) => {
     }
 
     useEffect(()=> {
-        onEducationChange(education)
+        onEducationChange(education,education.id)
+        
     }, [education])
     return (
         <>

@@ -44,12 +44,6 @@ const PersonalInfoForm = ({nextStep}) => {
               onClick={() => nextStep()}
               sx={{ mt: 3, }}
             >Next</Button>
-            <Button 
-              color="secondary"
-              sx={{ mt: 3, mb: 2,  }}
-              variant="contained"
-              onClick={() => nextStep()}
-            >Back</Button>
             </Box>
      </>
      
