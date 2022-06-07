@@ -4,12 +4,8 @@ import { Box, TextField, Button } from "@mui/material";
 
 
 
-const ExperienceSection = ({addEducation, nextStep, prevStep})=> {
-    const [educationList, setEducationList] = useState([{
-        id:1,
-        title: "Lorem",
-        description:"Lorem epsum dfjkdshfkjhdskjfhdkjfhhdkjshf"
-    }]);
+const ExperienceSection = ({addEducation, nextStep, prevStep, education})=> {
+    const [educationList, setEducationList] = useState([...education]);
     
 
     const handleOnChange = (e, index) => {

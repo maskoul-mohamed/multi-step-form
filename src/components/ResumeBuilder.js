@@ -4,6 +4,7 @@ import ExperienceSection from './ExperienceSection';
 import PersonalInfoForm from './PersonalInfoForm';
 import Resume from './templates/template-1/Resume';
 import { ResumeContext } from '../contexts/ResumeContext';
+import GenericPdfDownloader from './GenericPdfDownloader'
 
 const ResumeBuilder = () => {
     const [step, setStep] = useState(1)
@@ -15,7 +16,11 @@ const ResumeBuilder = () => {
             email:"",
         },
         experiences: [],
-        education: [],
+        education: [{
+            id:1,
+            title: "Lorem",
+            description:"Lorem epsum dfjkdshfkjhdskjfhdkjfhhdkjshf"
+        }],
         skills:[],
         others:[]
     })
@@ -46,7 +51,7 @@ const ResumeBuilder = () => {
                         nextStep={nextStep} 
                         prevStep={prevStep}
                     />
-                    
+                    <GenericPdfDownloader rootElementId={"divToDownload"}  />
                 </div>
 
             )
@@ -58,6 +63,8 @@ const ResumeBuilder = () => {
                         addEducation={addEducation} 
                         nextStep={nextStep} 
                         prevStep={prevStep} 
+                        education={resume.education}
+
                     />
                 </>
             )
